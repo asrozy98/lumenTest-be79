@@ -2,9 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Dosen;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class DosenSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,9 +15,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            DosenSeeder::class,
-            MahasiswaSeeder::class,
-        ]);
+        $dosen = User::factory()->has(Dosen::factory()->count(1))->count(5)->create();
     }
 }
